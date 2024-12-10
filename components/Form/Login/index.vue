@@ -18,7 +18,7 @@ const formValidationSchema = yup.object().shape({
   password: yup.string().required('Это обязательное поле *').min(4, 'Пароль должно содержать минимум 4 буквы'),
 })
 
-const { values, meta } = useForm<WorkoutForm>({ validationSchema: formValidationSchema })
+const { values } = useForm<WorkoutForm>({ validationSchema: formValidationSchema })
 const isEnabled = computed(() => {
   return (values.email && values.password) || (values.phone && values.password)
 })
@@ -72,7 +72,7 @@ function submitForm() {
 </script>
 
 <template>
-  <div class="absolute inset-0 h-screen bg-grey px-5 py-7 text-white sm:absolute sm:left-1/2 sm:top-1/2 sm:mx-auto sm:h-auto sm:w-[400px] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl">
+  <div class="absolute inset-0 h-screen bg-grey px-5 py-7 text-white sm:inset-auto sm:left-1/2 sm:top-1/2 sm:mx-auto sm:h-auto sm:w-[500px] sm:-translate-x-1/2 sm:-translate-y-1/2 sm:rounded-2xl">
     <form class="py-2.5" autocomplete="on" @submit.prevent="submitForm()">
       <h1 class="text-center text-[24px]">
         Авторизация
